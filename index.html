@@ -1,0 +1,93 @@
+<p class="text-gray-300 mb-4">
+                    Tenha 8 robôs configurados para te auxiliar na criação de produtos, narrativa, copy, 
+                    página de vendas, anúncios e mais. Economize horas de trabalho com assistentes digitais 
+                    que fazem o trabalho pesado para você.
+                </p>
+            </div>
+            <a href="https://t.me/+m4e_pT0L9Oo1Y2Ux" target="_blank" class="netflix-red w-full py-3 rounded font-bold text-center block hover:bg-red-700 transition">
+                Quero meus robôs assistentes
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="py-8 px-4 bg-black border-t border-gray-800">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="netflix-red-text text-2xl font-bold mb-4 md:mb-0">ANDRESSA</div>
+                
+                <div class="text-center md:text-right">
+                    <p class="text-gray-400">© 2023 Andressa. Todos os direitos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const closeMenuButton = document.getElementById('close-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+            mobileMenu.classList.add('flex');
+        });
+
+        closeMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            mobileMenu.classList.remove('flex');
+        });
+
+        // Modal functionality
+        const cards = document.querySelectorAll('.card');
+        const closeButtons = document.querySelectorAll('.close-modal');
+
+        cards.forEach(card => {
+            card.addEventListener('click', () => {
+                const modalId = card.getAttribute('data-modal');
+                const modal = document.getElementById(${modalId}-modal);
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+            });
+        });
+
+        closeButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const modal = button.closest('.modal');
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            });
+        });
+
+        // Close modal when clicking outside
+        const modals = document.querySelectorAll('.modal');
+        modals.forEach(modal => {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.add('hidden');
+                    modal.classList.remove('flex');
+                }
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                        mobileMenu.classList.remove('flex');
+                    }
+                }
+            });
